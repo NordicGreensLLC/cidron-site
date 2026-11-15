@@ -30,3 +30,7 @@ footer{background:var(--ink);color:var(--cream);border-top:6px solid var(--gold)
 .hero>*,.work>*{position:relative}
 .hero{border-top:none}
 .hero::before,.work::before{z-index:0}.hero>*,.work>*{z-index:1}
+.logo picture,.logo img{display:block}
+.logo img{width:44px;height:44px;border-radius:8px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .2s}
+.logo:hover img{transform:rotate(-4deg) scale(1.05)}
+.top{padding-top:10px;padding-bottom:10px}
