@@ -1,0 +1,19 @@
+/* ---------- Holiday layer (flat cut-paper, no gradients) ---------- */
+:root{--holly:#3B6B45;--leaf:#8DB580;--berry:#C8372D;--deer:#9A6440}
+.top{overflow:visible}
+.garland{position:absolute;left:0;right:0;top:100%;height:0;pointer-events:none;z-index:11}
+.garland svg{position:absolute;top:-6px;transform:scale(1.35);transform-origin:50% 0;overflow:visible;filter:drop-shadow(2px 2px 0 var(--ink))}
+.garland .sway{transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite alternate}
+.garland .g2 .sway{animation-duration:5.2s;animation-delay:-1.4s}
+.garland .g3 .sway{animation-duration:3.9s;animation-delay:-2.2s}
+.garland .g4 .sway{animation-duration:4.8s;animation-delay:-.7s}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+#santa{position:fixed;left:0;top:0;width:120px;height:56px;pointer-events:none;z-index:20;will-change:transform;opacity:0;transition:opacity .4s}
+#santa.on{opacity:1}
+#santa svg{width:100%;height:100%;overflow:visible;display:block}
+#santa .face{transform-box:view-box;transform-origin:60px 28px}
+#santa.left .face{transform:scaleX(-1)}
+#santa .part{filter:drop-shadow(1.5px 1.5px 0 #1F2A44)}
+@media (max-width:760px){.garland .g3,.garland .g4{display:none}#santa{width:92px;height:43px}}
+@media (prefers-reduced-motion:reduce){#snow{display:none}#santa{opacity:1;left:auto;top:auto;right:14px;bottom:14px;transform:none!important}}
