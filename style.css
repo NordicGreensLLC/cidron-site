@@ -64,7 +64,7 @@ footer{background:var(--ink);color:var(--cream);text-align:center;padding:24px;f
 .js .reveal.in{opacity:1;transform:none}
 .card.reveal.in:nth-child(odd){transform:rotate(-1deg)}.card.reveal.in:nth-child(even){transform:rotate(1deg)}
 .cards .reveal:nth-child(2),.grid .reveal:nth-child(2){transition-delay:.1s}.cards .reveal:nth-child(3),.grid .reveal:nth-child(3){transition-delay:.2s}.cards .reveal:nth-child(4){transition-delay:.3s}
-@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){.grid{gap:16px}}
 @media (max-width:560px){.grid{grid-template-columns:1fr}}
 @media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:5vh;min-height:auto}.hero-art{order:-1}.hero-art svg{max-width:300px}.top .btn.small{font-size:.8rem}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
