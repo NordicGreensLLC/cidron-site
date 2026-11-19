@@ -9,11 +9,37 @@
 .garland .g4 .sway{animation-duration:4.8s;animation-delay:-.7s}
 @keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
 #snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
-#santa{position:fixed;left:0;top:0;width:120px;height:56px;pointer-events:none;z-index:20;will-change:transform;opacity:0;transition:opacity .4s}
+#santa{position:fixed;left:0;top:0;width:230px;height:77px;pointer-events:none;z-index:20;will-change:transform;opacity:0;transition:opacity .4s}
 #santa.on{opacity:1}
-#santa svg{width:100%;height:100%;overflow:visible;display:block}
-#santa .face{transform-box:view-box;transform-origin:60px 28px}
+#santa svg{width:100%;height:100%;overflow:visible;display:block;filter:drop-shadow(1.5px 2px 0 rgba(26,31,43,.85))}
+#santa .face{transform-box:view-box;transform-origin:138px 46px}
 #santa.left .face{transform:scaleX(-1)}
-#santa .part{filter:drop-shadow(1.5px 1.5px 0 #1F2A44)}
-@media (max-width:760px){.garland .g3,.garland .g4{display:none}#santa{width:92px;height:43px}}
-@media (prefers-reduced-motion:reduce){#snow{display:none}#santa{opacity:1;left:auto;top:auto;right:14px;bottom:14px;transform:none!important}}
+/* gallop: legs swing from the hip, knees fold on the forward swing */
+#santa .leg{transform:rotate(var(--p,0deg));animation:gallop .72s linear infinite}
+#santa .knee{animation:knee .72s linear infinite}
+@keyframes gallop{0%{transform:rotate(34deg)}50%{transform:rotate(-36deg)}100%{transform:rotate(34deg)}}
+@keyframes knee{0%{transform:rotate(0)}22%{transform:rotate(62deg)}50%{transform:rotate(18deg)}66%{transform:rotate(0)}100%{transform:rotate(0)}}
+/* head nod, antler sway, bell, hat pom, reins hand */
+#santa .head{transform-origin:55px 8px;animation:nod .72s ease-in-out infinite}
+@keyframes nod{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(3deg)}}
+#santa .antF{transform-origin:55px 0;animation:nod .72s ease-in-out infinite;animation-delay:-.1s}
+#santa .bell{transform-box:fill-box;transform-origin:50% 0;animation:ring .36s ease-in-out infinite alternate}
+@keyframes ring{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+#santa .hattail{transform-origin:52px -8px;animation:flop .8s ease-in-out infinite alternate}
+@keyframes flop{from{transform:rotate(-7deg)}to{transform:rotate(9deg)}}
+#santa .arm{transform-origin:55px 22px;animation:rein .72s ease-in-out infinite}
+@keyframes rein{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
+#santa .santa{transform-origin:47px 38px;animation:lean .72s ease-in-out infinite}
+@keyframes lean{0%,100%{transform:rotate(-.8deg)}50%{transform:rotate(1.2deg)}}
+/* Rudolph */
+#santa .rglow{transform-box:fill-box;transform-origin:center;animation:glow 1.3s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.65;transform:scale(.85)}50%{opacity:1;transform:scale(1.2)}}
+#santa .rflare{transform-box:fill-box;transform-origin:center;animation:flare 1.3s ease-in-out infinite}
+@keyframes flare{0%,100%{opacity:.25;transform:scale(.6) rotate(0)}50%{opacity:.85;transform:scale(1.1) rotate(20deg)}}
+/* magic dust trail streaming behind the sleigh */
+#santa .sp{transform-box:fill-box;transform-origin:center;opacity:0;animation:spark 2.2s ease-out infinite}
+@keyframes spark{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}12%{opacity:1;transform:translate(-6px,calc(var(--dy)*.2)) scale(var(--s)) rotate(20deg)}100%{opacity:0;transform:translate(-96px,var(--dy)) scale(.15) rotate(140deg)}}
+#santa .dust{opacity:0;animation:dust 1.8s ease-out infinite}
+@keyframes dust{0%{opacity:0;transform:translate(0,0)}15%{opacity:.95}100%{opacity:0;transform:translate(-80px,var(--dy))}}
+@media (max-width:760px){.garland .g3,.garland .g4{display:none}#santa{width:156px;height:52px}}
+@media (prefers-reduced-motion:reduce){#snow{display:none}#santa{opacity:1;left:auto;top:auto;right:14px;bottom:14px;transform:none!important}#santa *{animation:none!important}#santa .sp,#santa .dust{opacity:0}#santa .rglow{opacity:.9}#santa .rflare{opacity:.5}}

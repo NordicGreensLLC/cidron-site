@@ -65,7 +65,7 @@
         parts[i].style.transformBox='fill-box'; parts[i].style.transformOrigin='50% 100%';
       }
       var tilt=Math.max(-12,Math.min(12,dy*k*2));
-      santa.style.transform='translate3d('+(x+ox).toFixed(1)+'px,'+(y-28+ride).toFixed(1)+'px,0) rotate('+(left?-tilt:tilt).toFixed(1)+'deg)';
+      santa.style.transform='translate3d('+(x+ox).toFixed(1)+'px,'+(y-santa.offsetHeight/2+ride).toFixed(1)+'px,0) rotate('+(left?-tilt:tilt).toFixed(1)+'deg)';
     }
     requestAnimationFrame(frame);
   }
